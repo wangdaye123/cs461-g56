@@ -1,0 +1,17 @@
+commit 311654061f26e9361f7d9a7354b87daadab5e2b1
+Author: Zhi JIang <jiang2533001@gmail.com>
+Date:   Fri Oct 14 10:49:03 2016 -0700
+
+    upload pdf format
+
+commit ffc0cb0e9777e532073199e81ed430c189aab96e
+Author: Zhi JIang <jiang2533001@gmail.com>
+Date:   Fri Oct 14 10:20:01 2016 -0700
+
+    upload files about problem statement
+
+commit 8d4312030857318480a153cb30e7429072f1f979
+Author: wangdaye123 <wangzhao@oregonstate.edu>
+Date:   Thu Oct 13 11:21:54 2016 -0700
+
+    Create README.md
