@@ -1,0 +1,95 @@
+\section{AWS Cloudwatch}
+    \subsection{Context}
+    Performance metrics for database functionality is an important element of the implementation. We will assess performance from typical database operations: data inserts, updates, and reads. After reviewing different technologies, AWS Cloudwatch is the utility we will use to perform these operations and measure the performance.
+    
+    \subsection{Viewpoint: Users}
+    We will have one primary user for the implemented system: OSU staff who perform data analysis. From their viewpoint, performance is an incredibly important feature of the database. The data analyzer may be performing analysis on potentially extremely large data sets; if the speed of reading the data in the database is slow, it is not a successful implementation. We understand that “slow” is a vague term, but without a method of comparison it is impossible to judge the collected performance metrics as of now. We will meet with current data analyzers and our client to determine whether or not the performance meets expectations.\\
+    
+    \noindent In order to accurately provide a model for realistic usage, we will need to measure performance of database operations using differing sizes of sample data.
+    
+    \subsection{Viewpoint: Scalability}
+    Another large aspect of our database implementation is the ability for it to scale well in the future, with more and more data added. Although this will of course affect the user, scalability will also affect the database administrator. Performance for inserting and updating data within the database is directly related to scalability, and whether or not the performance is heavily affected by the amount of stored data.\\
+    
+    \noindent We will use large sets of sample data to load into the database. These large sizes should again, differ in size in order to model an estimation for future database performance.
+    
+    \subsection{Implementation}
+    In AWS Cloudwatch, we will utilize the built-in PutMetricData API to input custom metrics for Cloudwatch to monitor\cite{i1}. This API works by passing measurements of interest into the API and the measurements are saved to a location within AWS for us to view.\\
+    
+	\noindent Here is a code example of checking CPU utilization, using the Cloudwatch command line interface. As shown, it displays the namespace, as well as the runtime. After collecting these types of metrics using differing sizes of data, we can provide an accurate model and estimate projected metrics with extremely large data sets.
+
+\begin{lstlisting}[caption=Cloudwatch monitoring example\cite{i2}]
+mon-get-stats CPUUtilization   
+      --namespace="AWS/RDS"     
+      --dimensions="DBInstanceIdentifier=instance-name"
+      --statistics Maximum
+      --start-time 2015-09-29T00:00:00   
+      --end-time 2015-09-29T00:05:00
+\end{lstlisting}
+
+\section{Database Security}
+	\subsection{Context}
+    With methods database security, we hope to improve the security of our database by restricting access and preventing malicious utilization of data. Our best options for database security is AWS’s user authentication policies, encrypting sensitive data fields, and using sufficient input validation to avoid injection attacks.
+    \subsection{Viewpoint: Users}
+    From a data analyzer viewpoint, database security is a concern, in order to prevent unintended data loss, either from malicious users or unfortunate accidental injection attacks. Data loss, if unrecognized while performing analysis, can result in incorrect conclusions drawn from incomplete data. Additionally, waiting for backups to be restored or missing data to be re-inserted takes up time and hinders work.
+    
+    \subsection{Adminstrators}
+    From an administration perspective, database security is a concern to reduce the possibility of malicious user access. Administrators will carefully restrict the number of authenticated users using AWS’s user authentication policies. Most of the data inside the database is OSU’s system users, with identifying fields such as student ID’s. If a malicious user were to gain access to the database, it would be a massive privacy breach for them to have access to identifying features of such high volume. Administrators will encrypt these identifying fields to prevent identification of the data.\\
+    
+    \noindent Elements of course include the database and subsequent data. Additionally, after we assess the necessity of including backups, possibly backups. 
+    
+    \subsection{Implementation}
+    AWS’s user authentications, also known as AWS IAM (Identity and Access Management), is quite robust. Administrators can create and manage AWS users and groups, while setting permissions to restrict access to certain AWS resources\cite{i3}. For example, administrators can set modularize groups to only have access to data ingestion, processing, or database for analysis. This prevents a large number of users to have access to the whole system and increases liability and responsibility for the users.\\
+    
+	\noindent As we implement the database, the user-identifying fields within the data is already encrypted to protect us as developers and reduce liability for our client. This encryption will remain within the database and future data inserts will be encrypted as according to the administrators.\\
+    
+	\noindent Finally, minimizing possibility of injection attacks. There is inherent protection when user authentication is done properly, because authenticated users will not be as likely to perform malicious operations. However, we will be implementing our NoSQL database with AWS DynamoDB, which inherently prevents injection attacks by not allowing multiple operations within one command.
+    
+\section{User Interaction}
+	\subsection{Context}
+    Users will need to be able to interact with the system. They will need to use different utilities for different interactions, such as monitoring resources, monitoring performance, managing data, and performing different methods of analysis. As discussed previously regarding performance metrics, the utility of choice for monitoring is AWS Cloudwatch. For the different methods of analysis, we chose AWS EMR as the most well-rounded utility for comprehensive coverage of analysis techniques.
+    
+    \subsection{Viewpoint: Data analyzers}
+    From the viewpoint of a data analyzer, they will be of course interested mainly in performing analysis on the data within the database. It is their choice what utility they use, but as the developers we would like to ensure the database implementation is acceptable. We chose AWS EMR as the utility we will test our database with. From EMR, we can perform basic tests to ensure data analysis is possible.\\ 
+    
+    \noindent AWS EMR is a managed Hadoop framework in a command line interface\cite{i4}. Scripts and code can be run from AWS EMR. As developers, we will be running basic data analysis code from EMR against the implemented database to ensure analysis is possible.
+    
+    \subsection{Viewpoint: Administrators}
+    From an administrative perspective, they will be interacting with the system with monitoring and management utilities. Because monitoring was covered in-depth in the performance metrics section, this section will mainly be on the management utility. Database management includes operations such as inserting new or updating data within the database. This can be achieved using our database implementation utility, AWS DynamoDB. See section 10, DynamoDB for more details.
+    
+    \subsection{Implementation}
+    Provided is a sample python script to perform a linear regression analysis on a set of data. Obviously as of now, the analysis is purely hypothetical, considering we do not currently have a source of data, nor we do know how the data will be analyzed. This sample code is only a proof of concept that scripts such as these can be run within AWS EMR to ensure analysis is possible with our database implementation.
+    
+\begin{lstlisting}[caption=Sample EMR linear regression analysis example\cite{i5}]
+def fit(X, Y):
+
+    def mean(Xs):
+        return sum(Xs) / len(Xs)
+        
+    m_X = mean(X)
+    m_Y = mean(Y)
+
+    def std(Xs, m):
+        normalizer = len(Xs) - 1
+        return math.sqrt(sum((pow(x - m, 2) for x in Xs)) / normalizer)
+
+    def pearson_r(Xs, Ys):
+        sum_xy = 0
+        sum_sq_v_x = 0
+        sum_sq_v_y = 0
+
+        for (x, y) in zip(Xs, Ys):
+            var_x = x - m_X
+            var_y = y - m_Y
+            sum_xy += var_x * var_y
+            sum_sq_v_x += pow(var_x, 2)
+            sum_sq_v_y += pow(var_y, 2)
+        return sum_xy / math.sqrt(sum_sq_v_x * sum_sq_v_y)
+
+    r = pearson_r(X, Y)
+    b = r * (std(Y, m_Y) / std(X, m_X))
+    A = m_Y - b * m_X
+
+    def line(x):
+        return b * x + A
+    return line
+\end{lstlisting}
