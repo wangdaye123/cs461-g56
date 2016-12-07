@@ -1,0 +1,55 @@
+\documentclass[10pt,draftclsnofoot,onecolumn,journal,compsoc]{IEEEtran}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{tabu}
+\usepackage[english]{babel}\usepackage[numbers]{natbib}
+\usepackage{natbib}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{pgfgantt}
+
+\renewcommand{\linespread}{1.0}
+\renewcommand{\bibsection}{}
+
+\lstset{
+captionpos=b,           
+}
+
+\renewcommand{\linespread}{1.0}
+\title{Prototype Big Data Archive in a Public Cloud}
+\author{
+  \IEEEauthorblockN{Group 56: Pathfinder of Big Data\\Zhi Jiang, Isaac T Chan, Zhaoheng Wang} \\
+  \IEEEauthorblockA{CS 461: Senior Capstone Fall 2016 \\ Oregon State University}
+}
+\date{}
+
+\IEEEtitleabstractindextext{
+	\begin{abstract}
+\noindent This document is to present a reviewing and summarizing for progress of our group in the past ten weeks. It includes purpose of this document, brief explanation of what we did in the past 7 weeks, current situation and a retrospective form.
+	\end{abstract}
+}
+
+\begin{document}
+% cover page    
+    \maketitle
+    \IEEEdisplaynontitleabstractindextext
+    \IEEEpeerreviewmaketitle
+    \newpage
+% catalog    
+    \tableofcontents
+    \newpage
+
+% content   }
+\input{introduction}
+    
+%body
+\section{Progress}
+\input{progress}
+\input{current_situation}
+\input{retrospective}
+
+\end{document}
