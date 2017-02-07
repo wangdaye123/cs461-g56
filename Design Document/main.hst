@@ -1,0 +1,3 @@
+\def \vhCurrentVersion {1.0}
+\def \vhCurrentDate {2017.02.06}
+\newsetsimple \vhAllAuthorsSet {Zhi Jiang}
