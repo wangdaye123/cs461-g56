@@ -1,0 +1,52 @@
+\section{Specific requirements}
+	\subsection{Functional requirements}
+	\begin{itemize}
+		\item The user can import any types of data into a NoSQl table in database from S3\\
+        \textbf{Description:} In this function, the user should be able to import multiple data types into a NoSQL table in database through EC2 service\\
+        \textbf{Sequence of operations:} 1) access EC2 service 2) run script to load file from S3 into local file 3) read data from local file 4) connect tbale in database 5) create new items to table\\
+        \textbf{Test:} When importing different types of data in database, we need to check all of data should be imported in target table.\\
+        
+        \item The user can create a table for importing table\\
+        \textbf{Description:} In this function, the user should be able to create a new table in NoSQL for storing data they want to import.\\
+        \textbf{Sequence of operations:} 1) access EC2 service 2) run script to create a table in database 3) connect this table and import data in it\\
+        \textbf{Test:} We can check wheather there exist a new table containing all data we have imported.\\
+        
+        \item The user can find information in database.\\
+        \textbf{Description:} In this function, the user should be able to find information in database.\\ 
+       \textbf{Sequence of operations:} 1) access the management console of database. 
+        2) enter information which needs to be searched. 3) use searching function to search information in database 4) output related data items.\\ 
+        \textbf{Test:} We can use unit testing to check correctness of results after we find a item.\\
+        
+        \item The user can do conditional find for information.\\
+        \textbf{Description:} In this function, the user should be able to search information according some specific condition. For example, user can set some restrictions like they can only find data about senior students or engineering students.\\
+        \textbf{Sequence of operations:} 1) access the management console of database. 2) enter information which needs to be search and set specific condition. 3) use search function to search information bases on condition. 4) output related data items.\\
+        \textbf{Test:}: We can create specific unit testing according to finding condition. Then to use these unit testings to check correctness of results when we conditionally search an item.\\
+        
+        \item The user can aggregate data and then find specific result.\\
+       	\textbf{Description:} In this functions, the user should be able to use aggregate methods to find some specific results such as average of GAP or the highest utilization ratio of certain printer on the campus.\\
+        \textbf{Sequence of operations:} 1) access the management console of database. 2) enter result which needs to be aggregated. 3) use aggregation function to specific result. 4) output specific results.\\
+        \textbf{Test:} We can use unit testing to check correctness of results after aggregate data. But we need to do some extra computing by ourselves for those specific results like average of GAP.\\
+        
+        \item The user can sort some specific data.\\
+        \textbf{Description:} In this function, the user should be able to sort specified data. For example, user can sort amount of credits for all engineering students.\\
+        \textbf{Sequence of operations:} 1) access the management console of database. 2) target a set of data which need to be sorted. 3) use sort function to sort a set of data. 4) output sorted list of data.\\
+        \textbf{Test:} When database return sorted list, we can use unit testing to traversal the entire list and check correctness of relationship between adjacent items.
+    \end{itemize}
+	
+	\subsection{Performance requirements}
+        Performance metrics will be determined and assessed as we begin implementation. Currently there is no reliable basis of comparison for any performance metrics regarding database operations, such as data insertion, manipulation, and searching. A basis of performance comparison is subjective and may not fit our implementation exactly, thus are not defined at this point. Performance times for operations can be assessed by the client for acceptable runtimes and after client response, operating methods may be altered.
+        
+ 	\subsection{Software system attributes}
+ 		\begin{itemize}
+        \item{\textbf{Reliability:}}\\
+        Compared to a locally hosted solution, a cloud platform offers additional benefits regarding reliability. When it comes to server maintenance, updates, and upgrades, downtime is a concern. Server downtime can interrupt analysis database access. Cloud platforms provide a reliable software system with minimal downtime\cite{AWS Rate}. There are agreements and certifications required by cloud providers\cite{Cloud} for acceptable amounts of downtime. As we implement our big data prototype with a cloud platform, reliability requirements are fulfilled by the cloud platform.\\
+       
+        \item{\textbf{Availability:}}\\
+        Additionally, cloud platforms provide a method of access from anywhere, only requiring user credentials and an Internet connection. This is another benefit to the cloud solution.\\
+   
+        \item{\textbf{Security:}}\\
+        Security is an important attribute. Our development will be using test-sets of user anonymized data, which protects us from liability and knowledge of specific users. Also, databases do have vulnerabilities, like any other software. We will consider prevention of malicious interactions, such as injection attacks. On the same note, if for any reason the database were to go down, we may want to have implemented a backup database. This will depend on the transfer time and quantity of data to store; if it is easily uploaded there is no reason to require a backup database.\\
+     
+        \item{\textbf{Maintainability:}}\\
+        Future maintenance is another concern. Our implementation will be maintained by others of varying levels of expertise. Therefore, our product must have readable code and abundant, clear documentation.
+    	\end{itemize}
