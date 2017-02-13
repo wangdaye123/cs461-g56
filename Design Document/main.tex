@@ -29,11 +29,8 @@ captionpos=b,
 \date{}
 
 \IEEEtitleabstractindextext{
-	\begin{abstract}
-OSU campuses generate data constantly from multiples sources, including computer labs, wireless usage, student devices, and many others. This quantity of data, also known as big data which will effectively represent all kinds of behaviors of students for information technology. However, the data is very difficult to manage because it is collected from multiple sources and is hard to analyze. As a result, various technologies will be required for supporting this project. In this document, we will talk about these technologies based on different viewpoints such as context, information or algorithm. For each viewpoint, we will declare the design concerns for it. Besides, we will introduce our technology detail based on these viewpoints.
-	\end{abstract}
+	\input{abstract}
 }
-
 
 \begin{document}
 % cover page    
@@ -50,33 +47,16 @@ OSU campuses generate data constantly from multiples sources, including computer
 	\newpage
 
 % content   
-\section{Introduction}
 	\input{introduction}
-
-\section{References}
 	\input{references}
-
-\section{Glossary}
 	\input{glossary}
-
-\section{Timeline}
 	\input{timeline}
     
 %body
-\input{Isaac_Chan}
-\input{Zhi_Jiang}
-\input{Zhaoheng_Wang}
+	\input{Isaac_Chan}
+	\input{Zhi_Jiang}
+	\input{Zhaoheng_Wang}
 
 \newpage
-        \thispagestyle{empty}
-        \noindent\begin{tabular}{ll}
-        \makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
-        Client & Date\\[8ex]% adds space between the two sets of signatures
-        \makebox[2.5in]{\hrulefill}\\
-        Developer 1\\[8ex]
-        \makebox[2.5in]{\hrulefill}\\
-        Developer 2\\[8ex]
-        \makebox[2.5in]{\hrulefill}\\
-        Developer 3\\[8ex]
-        \end{tabular}
+    \input{signature}
 \end{document}
