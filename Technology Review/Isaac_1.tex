@@ -1,0 +1,24 @@
+        \section{Methods to measure performance metrics of database functionality}
+        The following are the three best options for benchmarking and measuring performance of our implemented NoSQL database: YCSB, AWS Cloudwatch, and TPC-H. YCSB, or Yahoo! Cloud Serving Benchmark, is “an open source framework for evaluating and comparing the performance of multiple types of data-serving systems”\cite{I1}. AWS Cloudwatch is a built-in utility of AWS and can be used to collect and track metrics. TPC-H benchmark “consists of a suite of business oriented ad-hoc queries and concurrent data modifications”\cite{I2}. With the benchmarking and performance measurement utility, we hope to obtain a baseline for our database performance and examine how various data and query loads compare to the baseline. We will be evaluating operation speed of operations such as database inserts, updates, and reads.
+        
+        \begin{table}[ht]
+        \begin{tabular}{|c|c|c|c|c|p{5cm}|}
+            \hline
+            \textbf{} & \textbf{Inserts} & \textbf{Updates} & \textbf{Reads} & \textbf{Visualization} & \textbf{Extra Notes}\\
+            \hline
+            YCSB & Yes & Yes & Yes & Raw data, can be plotted & Open-source utility means we can customize tests to fit our use-case\\
+            \hline
+            AWS Cloudwatch & Yes & Yes & Yes & On AWS UI and also provides raw data & Built-in utility eliminates complexity of implementation\\
+            \hline
+            TPC-H & Yes & Yes & Yes & Raw data &Lack of customizable tests\\
+            \hline
+        \end{tabular}
+        \end{table}
+       
+        \noindent YCSB is a very customizable, open-source utility that can produce relevant and informational metrics for our database. It has a wide user-base and should be easy to implement. \\
+    
+        \noindent AWS Cloudwatch is a built-in tool that can deliver relevant metrics and should work well with our database on AWS. It also has customizable metrics, which we would implement using AWS CLI (command line interface).\\ 
+        
+        \noindent Finally, TPC-H is an enterprise-grade option, mostly used for server-production companies to measure how their products compare to alternatives. There is a lack of customization and a lack of a community for troubleshooting. Documentation is minimal. Implementing TPC-H is likely to be a challenge.\\
+        
+        \noindent We will select AWS Cloudwatch as the best option. Cloudwatch can also use customized metrics tests which is important in order to know metrics to fit our use case. Although YCSB may be more easily customizable, the lack of installation makes Cloudwatch the best option.

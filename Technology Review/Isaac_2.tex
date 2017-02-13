@@ -1,0 +1,25 @@
+        \section{Methods of database security}
+        Traditionally, NoSQL databases have minimal security. In most implementations, the only security is to allow access to the database via “trusted” machines. However, relying solely on the network is almost certainly an invitation for a breach to sensitive information. NoSQL databases also cannot use external encryption tools, such as LDAP or Kerberos. Our best options for database security is AWS’s user authentication policies, encrypting sensitive data fields, and using sufficient input validation to avoid injection attacks.With methods of database security, we hope to improve security of our database by restricting access and preventing malicious utilization of the data. We will evaluate database security by ensuring only approved user access, whether or not sensitive data is encrypted, and resistance to injection attacks.
+        
+        \begin{table}[ht]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \textbf{} & \textbf{User restricted access} & \textbf{Sensitive data encryption} & \textbf{Resistance to injection attacks}\\
+            \hline
+            AWS user authentication & Yes & No & Yes\\
+            \hline
+            Sensitive data encryption & No & Yes & No\\
+            \hline
+            Input validation & No & No & Yes\\
+            \hline
+        \end{tabular}
+        \end{table}
+
+        \noindent AWS offers a useful utility for user authentication, where users of the system can be granted different levels of access. Naturally, with authentication there is a built-in resistance to injection attacks because hopefully authenticated users are less prone to malicious intent.\\ 
+        
+        \noindent There will be sensitive data in our database, most notably user-identification information, such as student IDs. This will be encrypted prior to given to us, and will most likely remain encrypted as the database is implemented and real data is inserted.\\
+        
+        \noindent Finally, input validation is a minimal concern if we decide to implement NoSQL using AWS DynamoDB. DynamoDB does not support multiple actions with a single command, removing the risk of injection attacks. If we choose to implement the database using another tool, then there will need to be test cases to identify and ignore injection attacks.\\
+        
+        \noindent As shown in the comparison table above, no one method can cover the security of the table. We will need to implement all three methods. Due to the lack of external tool support by NoSQL databases, we must resort to using modular security methods. 

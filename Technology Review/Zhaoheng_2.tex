@@ -1,0 +1,19 @@
+        \section{Programming language for achieving Database functionality}
+        There are many options for programming language such as java, python, php. Each programming language will have different features. Our goal for this part is to figure out the suitable language for our product and avoid using many different languages. Because the more languages we use the more mistake we will might have.we generate several criteria for evaluating different language such as APIs, testability,security and tool support .
+
+        \begin{table}[ht]
+        \resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|c|}
+            \hline
+            \textbf{language} & \textbf{API for inserting } & \textbf{API for updating} & \textbf{API for listing table} & \textbf{Testability} & \textbf{Security} &\textbf{DynamoDB support}\\
+            \hline
+            Java & Yes & Yes & Yes & Testable & Secure & Yes\\
+            \hline
+            php & Yes & Yes & Yes & Testable & Normal & Yes\\
+            \hline
+            python & No & No & No & Testable & Secure & Yes\\
+            \hline
+        \end{tabular}}
+        \end{table}
+                
+        \noindent Java is the optimal choice for achieving Database functionality. Here are the reason as following. The document of Amazon DynamoDB provide the APIs for basic functionality in java such as inserting data, updating data and listing table. These APIs make the database functionality achieving more easily. Besides, Java is testable and more secure than the php. Another point is most of tool for our product is using Java.If we use the language other than java, the process will become complex because we also need to figure out the translation way  between java and that language. This will also make the test process become much more complex. therefore , java is the suitable language for achieving Database functionality.
+%9

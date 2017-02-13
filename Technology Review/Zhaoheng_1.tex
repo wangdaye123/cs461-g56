@@ -1,0 +1,33 @@
+        \section{The storage way for dealing with processed data}
+        The goal for this part is to figure which is the optimal option of storage way for dealing with  processed data.our product requires to use the NoSQL database however it may not be the optimal option for storage. As a result, we will first compare other storage way with database to check whether database is the optimal choice. If the database is the optimal choice, we will compare the Sql with NoSQL databases. After that, it is necessary to figure out which type of SQL or NoSQL is the best option.\\
+    
+        \noindent There are many ways for storing data such as Database, Files, Cookies and other ways. we would like to start with cookie storage. Usually, cookies are used to store tiny bits of data. These data are very small only below 4 kilobytes per domain\cite{W1}. Besides. the cookies are pass the data by request which is not suitable for our product. Therefore, the cookie storing is not a good choice for our product. Another option is using Files such as XML to store the data. The data will be very large quality in our product thus there will be a lots of XML files for storing. Because of this, the management will be complex by using XML files. So the file storing is also not the suitable option for storage. The next option is using database. The database is used to store the data. The data could be managing, retrieving and organizing in the database\cite{W2}.The database gives promote accessibility for the data and the data could be easily accessed by using query. Besides, it makes the data more security and reducing the cost for data insert, storing\cite{W3}. As a result, the database is the optimal choice for our product.\\
+        
+        \noindent The database could divide into two types in general: the Relationship database and Non-relational database.The Relational database is usually represent the data base on the table however the Non-relational database use dynamic schema for data. When dealing with multiple type of data, the Relationship database is not the optimal choice because it is not the optimal choice if the data is storing in hierarchical. However, the Non-relational database is the optimal choice for  dealing large quantity of data which stores in hierarchical. For scalability, the Relationship database could increase its scalability by promoting the power of hardware however the Non- relational database will increase its scalability by reducing the load. After comparing with the Relationship database and Non-relational database, we find that the Non-relational database Is the optimal choice for our product because the Non-relational database is suitable for dealing with large quantity of data which stores in hierarchical\cite{W4}.\\
+	
+	    \noindent The Non-relational database we want to evaluating are: SimpleDB, MongoDB, DynamoDB, Cloud Datastore. we generate several criteria for evaluating these NoSQL databases. These criteria will evaluating the NoSQL database in various features such as cost,platform support, security,loading speed and many other features.
+        \\
+        \begin{longtable}{|c|p{2cm}|p{2cm}|p{1cm}|p{5cm}|p{3cm}|}
+            \hline
+            \textbf{Tool} & \textbf{Platform} & \textbf{Security for the data} & \textbf{Speed for loading data} & \textbf{Features} & \textbf{cost for the tool}\\
+            \hline
+            SimpleDB & Amazon web services & Yes & Fast & High availability and simple to use & Low \\
+            \hline
+            MongoDB & Cross-platform & Yes & Fast & Document database, high performance and high availability & Low \\
+            \hline
+            DynamoDB & Amazon web services & Yes & Fast & Support key-value model,High availability, free-text search,flexible database schema & 25GB for free and the cost is low\\
+            \hline
+             Cloud Datastore & Google cloud platform & Does not mention on the product page & Fast & High availability and high scalability & Low\\
+            \hline
+        \end{longtable}
+ 
+ 	    \noindent SimpleDB is offered by Amazon web services. It is security for the data and the speed for loading is fast. Besides, the cost for it is low.\\
+
+        \noindent MongoDB is supported by cross-platform. It is also security for the data and the speed for loading is fast. It has the high availability and high performance. The cost for it is also low.\\
+
+        \noindent DynamoDB is supported by Amazon web services. It is more security for the data than others and the speed for loading is fast. It has many features for example, the free-text search will make the information searching more convenient\cite{W5}. Besides, it has high availability and flexible database schema.\\
+
+        \noindent Cloud Datastore is supported by Google cloud platform.it is fast and it has high availability and high scalability.\\
+
+        \noindent We will select the DynamoDB for storing because our client requires to use the Amazon web services as the platform. Besides, the DynamoDB has more features which is suitable for our product. For example, the free-text search allows to search the information easier and flexible schema make the schema easy to development. Furthermore, the cost for DynamoDB is very low.
+%8       
