@@ -28,7 +28,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
  	(1) Create Tables\\
     We will use the AWS Java SDK for creating tables. The Amazon provides the Java document API for creating tables.These API will help us to create the database schema that we need.The API will first create a dynamoDB class. After that it declares a table request which contains the table name, key of table, the definitions of attributes and capacity.\\
     Here is the API\cite{w1} :\\
-    \begin{lstlisting}[caption=API for create tables]
+    \begin{lstlisting}[language=Java, caption=API for create tables]
 	DynamoDB dynamoDB = new DynamoDB(new Client(new Provider()));
 	ArrayList [Attribute] attribute= new ArrayList[Attribute] ();
 	attribute.add(new Attribute().withAttributeName("Id").withAttributeType("N"));
@@ -46,7 +46,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
     (2) Upload Data\\
     We will use the AWS Java SDK for uploading data into schema. The Amazon provides the Java document API for uploading data.We will use these API to upload the data into the table that we create. The API will first create dynamoDB class.After that it declares a new item which contains the primary key, string set and the numbers for uploading.\\
     Here is the API\cite{w1}:\\
-    \begin{lstlisting}[caption=API for Upload data]
+    \begin{lstlisting}[language=Java, caption=API for Upload data]
     Table table = dynamoDB.getTable(Name);
     try 
     Item item = new Item()
@@ -61,7 +61,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
     (3) Update Table\\
     We will use the AWS Java SDK for updating table. The Amazon provides the Java document API for updating table.We will use these API to update the data in the table that we create.The API will first create table class. After that it declares a new class called “provisionedthroughput” which contains the information for updating.\\
     Here is the API\cite{w1}:
-      \begin{lstlisting}[caption=API for update table]
+      \begin{lstlisting}[language=Java, caption=API for update table]
     DynamoDB dynamoDB = new DynamoDB(new Client(
     new Provider()));
     Table table = dynamoDB.getTable(table);
@@ -74,7 +74,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
     (4) Delete Table\\
     We will use the AWS Java SDK for deleting table. The Amazon provides the Java document API for deleting table. We will use these API to deleting table. The API will create table class. After that, it deletes the table which is the table need to delete.\\
     Here is the API\cite{w1}:
-      \begin{lstlisting}[caption=API for delete data]
+      \begin{lstlisting}[language=Java, caption=API for delete data]
     DynamoDB dynamoDB = new DynamoDB(new Client(
     new Provider()));
     Table table = dynamoDB.getTable(table);
@@ -84,7 +84,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
     (5) List table\\
     We will use the AWS Java SDK for listing table. The Amazon provides the Java document API for listing table.We will use these API to list the data in the table that we create.The API will first create DynamoDB class. After that it will execute the list table method for listing table.\\
     Here is the API\cite{w1}:\\
-     \begin{lstlisting}[caption=API for list table]
+     \begin{lstlisting}[language=Java, caption=API for list table]
     DynamoDB dynamoDB = new DynamoDB(new Client(new Provider()));
     TableCollection[Result] tables = dynamoDB.listTables();
     Iterator[Table] iterator = tables.iterator();
@@ -95,7 +95,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
     (6) Query table \\
     We will use the AWS Java SDK for query the table. The Amazon provides the Java document API for querying the table.We will use these API to query the table that we create. The API will first create DynamoDB class.Then, it will create a table class which use to represent the table for retrieving. After that, it will use the query to retrieving the data.\\
     Here is the API\cite{w2}:
-      \begin{lstlisting}[caption=API for query table]
+      \begin{lstlisting}[language=Java, caption=API for query table]
     DynamoDB dynamoDB = new DynamoDB(
     new Client(new Provider()));
     Table table = dynamoDB.getTable(table);
@@ -111,7 +111,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
     (7) Scan Table \\
     We will use the AWS Java SDK for scan the table.The Amazon provides the Java document API for scan the table.We will use these API to scan the table in order to read the data which store in the table. The API will create a class called “Client”. Then, it create a class which use to provide the information of table for scanning.\\
     Here is the API for Scan Table\cite{w3}:
-      \begin{lstlisting}[caption=API for scan table]
+      \begin{lstlisting}[language=Java, caption=API for scan table]
     AmazonDynamoDBClient client = new Client(
     new Provider());
     ScanRequest scanRequest = new ScanRequest()
