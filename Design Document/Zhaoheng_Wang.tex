@@ -1,14 +1,10 @@
 \section{DynamoDB}
     \subsection{Overview}
     A step for modeling data structure and figure out the data type are necessary before uploading data into the DynamoDB. After that, the table will be created and there will be some implementation for the table such as updating, deleting.The Information viewpoint will be use to design the table. Algorithm viewpoint will be use to implement different operation in database.    
-    
     \subsection{Information viewpoint}
-
-    The Information viewpoint will be use to modeling data structure (design the tables).\\
-Design concern \\
-The major concern will be modeling the data structure of NoSQL database in a clear way. It is very important because it will be easy to create tables if the modeling part is clear. Another concern will be how to convert data into schema in NoSQL database.\\
-\\
-In relational database, the ER-diagram is usually used to convert data into schema. In the key-value type of NoSQL database, the ER-diagram is not suitable to represent the table.The DynamoDB is much different with the SQL type database such as MySQL.In DynamoDB,we treat each rows of sample data as an individual item and each columns will be the attributes for the item.When we load the data into table, we are actually load the items into the table in DynamoDB.The figure \ref{fig:1} shows the example for this.
+    The Information viewpoint will be use to modeling data structure (design the tables).
+	\subsection{ Design Concern}
+	The major concern will be modeling the data structure of NoSQL database in a clear way. It is very important because it will be easy to create tables if the modeling part is clear. Another concern will be how to convert data into schema in NoSQL database.In relational database, the ER-diagram is usually used to convert data into schema. In the key-value type of NoSQL database, the ER-diagram is not suitable to represent the table.The DynamoDB is much different with the SQL type database such as MySQL.In DynamoDB,we treat each rows of sample data as an individual item and each columns will be the attributes for the item.When we load the data into table, we are actually load the items into the table in DynamoDB.The figure \ref{fig:1} shows the example for this.
 \begin{figure}[h]
  \includegraphics[width=15cm, height=8cm]{11.jpg}
  \centering
@@ -16,17 +12,14 @@ In relational database, the ER-diagram is usually used to convert data into sche
  \end{figure}
 
     \subsection{Algorithm viewpoint}
-    Algorithm viewpoint will be use to implement different operation such as create table, upload data, update table, delete table, list table, query table and scan table.\\
-\\
-    Design concerns\\
-    The concern for this part will be how to design the algorithm for operations. Fortunately, the Amazon provides basic APIs for the operations. So we can adapt it from the Amazon document API.\\
-\\  
-    AWS Java SDK\\
-    AWS Java SDK is actually similar with the command line prompt in Windows. We could use it to do different implementations for the table.For instance, if we need to update some items in the table, we could use the APIs in AWS Java SDK to do the updating. However, AWS Java SDK is not efficient for uploading the items.As a result, we will only use it for simple operations such as creating table, deleting table, updating table.\\
-\\
-	APIs for operation\\ 
- 	(1) Create Tables\\
-    We will use the AWS Java SDK for creating tables. The Amazon provides the Java document API for creating tables.These API will help us to create the database schema that we need.The API will first create a dynamoDB class. After that it declares a table request which contains the table name, key of table, the definitions of attributes and capacity.\\
+    Algorithm viewpoint will be use to implement different operation such as create table, upload data, update table, delete table, list table, query table and scan table.
+    \subsection{Design concerns}
+    The concern for this part will be how to design the algorithm for operations. Fortunately, the Amazon provides basic APIs for the operations. So we can adapt it from the Amazon document API. 
+    \subsection{AWS Java SDK}
+    AWS Java SDK is actually similar with the command line prompt in Windows. We could use it to do different implementations for the table.For instance, if we need to update some items in the table, we could use the APIs in AWS Java SDK to do the updating. However, AWS Java SDK is not efficient for uploading the items.As a result, we will only use it for simple operations such as creating table, deleting table, updating table.
+	\subsection{APIs for operation}
+ 	 	\subsubsection{Create Tables}
+    	We will use the AWS Java SDK for creating tables. The Amazon provides the Java document API for creating tables.These API will help us to create the database schema that we need.The API will first create a dynamoDB class. After that it declares a table request which contains the table name, key of table, the definitions of attributes and capacity.\\
     Here is the API\cite{w1} :\\
     \begin{lstlisting}[language=Java, caption=API for create tables]
 	DynamoDB dynamoDB = new DynamoDB(new Client(new Provider()));
@@ -43,8 +36,8 @@ In relational database, the ER-diagram is usually used to convert data into sche
 	Table table = dynamoDB.createTable(request);
 	table.waitForActive();
   \end{lstlisting}
-    (2) Upload Data\\
-    We will use the AWS Java SDK for uploading data into schema. The Amazon provides the Java document API for uploading data.We will use these API to upload the data into the table that we create. The API will first create dynamoDB class.After that it declares a new item which contains the primary key, string set and the numbers for uploading.\\
+    	\subsubsection{Upload Data}
+    	We will use the AWS Java SDK for uploading data into schema. The Amazon provides the Java document API for uploading data.We will use these API to upload the data into the table that we create. The API will first create dynamoDB class.After that it declares a new item which contains the primary key, string set and the numbers for uploading.\\
     Here is the API\cite{w1}:\\
     \begin{lstlisting}[language=Java, caption=API for Upload data]
     Table table = dynamoDB.getTable(Name);
@@ -58,7 +51,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
            .withString();
     table.putItem();
   \end{lstlisting}
-    (3) Update Table\\
+    \subsubsection{Update Table}
     We will use the AWS Java SDK for updating table. The Amazon provides the Java document API for updating table.We will use these API to update the data in the table that we create.The API will first create table class. After that it declares a new class called “provisionedthroughput” which contains the information for updating.\\
     Here is the API\cite{w1}:
       \begin{lstlisting}[language=Java, caption=API for update table]
@@ -71,7 +64,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
     table.updateTable(provisionedThroughput);
     table.waitForActive();
 \end{lstlisting}
-    (4) Delete Table\\
+    \subsubsection{Delete Table}
     We will use the AWS Java SDK for deleting table. The Amazon provides the Java document API for deleting table. We will use these API to deleting table. The API will create table class. After that, it deletes the table which is the table need to delete.\\
     Here is the API\cite{w1}:
       \begin{lstlisting}[language=Java, caption=API for delete data]
@@ -81,7 +74,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
     table.delete();
     table.waitForDelete();
 	\end{lstlisting}
-    (5) List table\\
+    \subsubsection{List table}
     We will use the AWS Java SDK for listing table. The Amazon provides the Java document API for listing table.We will use these API to list the data in the table that we create.The API will first create DynamoDB class. After that it will execute the list table method for listing table.\\
     Here is the API\cite{w1}:\\
      \begin{lstlisting}[language=Java, caption=API for list table]
@@ -92,7 +85,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
     Table table = iteratornext();
     System.out.println(table.getTableName());
     \end{lstlisting}
-    (6) Query table \\
+    \subsubsection{Query table}
     We will use the AWS Java SDK for query the table. The Amazon provides the Java document API for querying the table.We will use these API to query the table that we create. The API will first create DynamoDB class.Then, it will create a table class which use to represent the table for retrieving. After that, it will use the query to retrieving the data.\\
     Here is the API\cite{w2}:
       \begin{lstlisting}[language=Java, caption=API for query table]
@@ -108,7 +101,7 @@ In relational database, the ER-diagram is usually used to convert data into sche
     item = iterator.next();
     System.out.println(item.toJSONPretty());
 	\end{lstlisting}
-    (7) Scan Table \\
+    \subsubsection{Scan Table}
     We will use the AWS Java SDK for scan the table.The Amazon provides the Java document API for scan the table.We will use these API to scan the table in order to read the data which store in the table. The API will create a class called “Client”. Then, it create a class which use to provide the information of table for scanning.\\
     Here is the API for Scan Table\cite{w3}:
       \begin{lstlisting}[language=Java, caption=API for scan table]
@@ -125,16 +118,14 @@ In relational database, the ER-diagram is usually used to convert data into sche
     \subsection{Overview}
     The data store in the DynamoDB will be used to create an analyze and a visual on Amazon visualization tool called Quicksight. In this part, Information viewpoint will be used.
     \subsection{Information viewpoint}
-    The information viewpoint can be used to achieve visualization part. Basically, we will use the Quicksight as the visualization tool to represent the analyzing result.\\
-\\
-    Design concern \\
-    The major concern for this part will be how to generate a visual on the Quicksight. Fortunately, the Amazon provides tutorial on the Quicksight document. Therefore, we can a follow the instruction step by step from the document.\\
-\\    
-    Step for creating a visual\\
+    The information viewpoint can be used to achieve visualization part. Basically, we will use the Quicksight as the visualization tool to represent the analyzing result.
+    \subsection{Design concern} 
+    The major concern for this part will be how to generate a visual on the Quicksight. Fortunately, the Amazon provides tutorial on the Quicksight document. Therefore, we can a follow the instruction step by step from the document.    
+    \subsection{Step for creating a visual}
     Base on the Quicksight document, there will be several general step for creating a visual. The first step is to create a data source in your database. These data source are very important for Quicksight because it will require these data source for creating data set and do the analyzing. After that, the Quicksight needs to connect with the data source. In this step, if the database is on the Amazon web services the data source will be easily to connect. However, if the data source is not on the Amazon web services it requires port, database access information to connect the data source in database. The detail information is on the Amazon Quicksight document. The next step is to create the data set according to data source and do an analyzing. The last step is to create a visual according to the data set. There are different types of visual on the Quicksight and we can choose one to generate the suitable graph for the analyzing result.\cite{w4}For our project, the QuickSight will get the data source and create the data set from S3 or Local PC.\\
     The figure \ref{fig:2} shows the general process:
     \begin{figure}[h]
-    \includegraphics[width=16cm, height=7cm]{6.jpg}
+    \includegraphics[width=16cm, height=8cm]{6.jpg}
     \centering
     \caption{\label{fig:2}General process}
     \end{figure}
