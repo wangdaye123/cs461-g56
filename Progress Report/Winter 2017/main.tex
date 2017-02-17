@@ -1,0 +1,90 @@
+\documentclass[10pt,draftclsnofoot,onecolumn,letterpaper,compsoc]{IEEEtran}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{tabu}
+\usepackage[english]{babel}\usepackage[numbers]{natbib}
+\usepackage{natbib}
+\usepackage{longtable}
+\usepackage{vhistory}
+\usepackage{pgfgantt}
+\usepackage{listings}
+\usepackage{color}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+\renewcommand{\linespread}{1.0}
+\renewcommand{\bibsection}{}
+
+\lstset{
+captionpos=b,           
+}
+\title{Prototype Big Data Archive in a Public Cloud}
+\author{
+  \IEEEauthorblockN{Group 56: Pathfinder of Big Data\\Zhi Jiang, Isaac T Chan, Zhaoheng Wang} \\
+  \IEEEauthorblockA{CS 462: Senior Capstone winter 2017 \\ Oregon State University}
+}
+\date{}
+
+\IEEEtitleabstractindextext{
+	\input{abstract}
+}
+
+
+\begin{document}
+% cover page    
+    \maketitle
+    \IEEEdisplaynontitleabstractindextext
+    \IEEEpeerreviewmaketitle
+    \newpage
+
+% catalog    
+    \tableofcontents
+	%\resizebox{\textwidth}{!}
+    \newpage
+
+% content   
+	\input{introduction}
+
+	\input{Zhi}
+    
+  	\input{Zhaoheng}
+  
+    \input{Isaac}
+
+    \newpage
+    \input{timeline}
+	\newpage
+    
+    
+%references
+	\input{references}
+
+\end{document}
