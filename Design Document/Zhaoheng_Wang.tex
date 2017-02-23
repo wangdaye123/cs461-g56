@@ -5,8 +5,8 @@
     The Information viewpoint will be use to modeling data structure (design the tables).
 	\subsection{ Design Concern}
 	The major concern will be modeling the data structure of NoSQL database in a clear way. It is very important because it will be easy to create tables if the modeling part is clear. Another concern will be how to convert data into schema in NoSQL database.In relational database, the ER-diagram is usually used to convert data into schema. In the key-value type of NoSQL database, the ER-diagram is not suitable to represent the table.The DynamoDB is much different with the SQL type database such as MySQL.In DynamoDB,we treat each rows of sample data as an individual item and each columns will be the attributes for the item.When we load the data into table, we are actually load the items into the table in DynamoDB.The figure \ref{fig:1} shows the example for this.
-\begin{figure}[h]
- \includegraphics[width=15cm, height=8cm]{11.jpg}
+\begin{figure}[H]
+ \includegraphics[width=15cm, height=12cm]{11.jpg}
  \centering
  \caption{\label{fig:1}sample csv data in DynamoDB table}
  \end{figure}
@@ -124,7 +124,7 @@
     \subsection{Step for creating a visual}
     Base on the Quicksight document, there will be several general step for creating a visual. The first step is to create a data source in your database. These data source are very important for Quicksight because it will require these data source for creating data set and do the analyzing. After that, the Quicksight needs to connect with the data source. In this step, if the database is on the Amazon web services the data source will be easily to connect. However, if the data source is not on the Amazon web services it requires port, database access information to connect the data source in database. The detail information is on the Amazon Quicksight document. The next step is to create the data set according to data source and do an analyzing. The last step is to create a visual according to the data set. There are different types of visual on the Quicksight and we can choose one to generate the suitable graph for the analyzing result.\cite{w4}For our project, the QuickSight will get the data source and create the data set from S3 or Local PC.\\
     The figure \ref{fig:2} shows the general process:
-    \begin{figure}[h]
+    \begin{figure}[H]
     \includegraphics[width=16cm, height=8cm]{6.jpg}
     \centering
     \caption{\label{fig:2}General process}
