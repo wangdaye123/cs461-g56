@@ -1,22 +1,22 @@
-# cs461-g56
+# Cs461-g56
 
 # Project: 
-  Prototype Big Data Archive in a Public Cloud
+    Prototype Big Data Archive in a Public Cloud
 
-# group member: 
-  Zhi Jiang
-  Isaac T Chan
-  Zhaoheng Wang
+# Group member: 
+    Zhi Jiang
+    Isaac T Chan
+    Zhaoheng Wang
 # Client:
-  David Barber
+    David Barber
 # Responsibility:
     Zhi Jiang: 
-      Load data from S3 into DynamoDB(ingest and management of sample data)
+      Load data from S3 into DynamoDB(Ingest and management of sample data)
       Create table for DynamoDB
     Zhaoheng Wang:
       Design the table for DynamoDB
       Design the workflow for loading new data
-      Create visualization on QuickSight(rudimentary analysis,visualization)
+      Create visualization on QuickSight(Rudimentary analysis,visualization)
     Isaac T Chan:
       Cost model for public cloud resources used
       Test
