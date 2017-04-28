@@ -46,7 +46,8 @@
     (3) Choose New data set
     (4) Click upload a file and choose the csv file which export from the "DataForCapstone1" table
     (5) Using the data set and select the conlumn which need to evalute.
-    (6) Select the visual types the visual will be created on right side.
+    (6) Select the visual types and the conlumns need to evaluate.
+    (7) the visual will be created on right side.
 
 # Introduction for project:
     OSU campuses generate data constantly from multiples sources, including computer labs, wireless usage, student devices, and many others. This quantity of data, also known as big data, can effectively represent all kinds of behaviors of students for information technology. For example, analysis can be run to determine common student behaviors in order to allocate OSU resources more effectively. Currently, the data is very difficult to manage because it is collected from multiple sources and is impossible to analyze. The data is neither stored in the same formats nor in the same locations, meaning it is inaccessible and useful information is unable to be extracted.Our goal for this project is to unify and organize the data onto the consistent cloud platform of Amazon Web Services, which additionally provides utilities to manage and analyze. To achieve this, we plan to have a working prototype at the Engineering Expo that demonstrates the value of analyzing OSU big data and how the cost-to-value of our Amazon cloud solution compares to locally-hosted hardware. Our prototype will allow OSU big data to be analyzed and eventually it can be scaled to analyze all the data that OSU collects.
