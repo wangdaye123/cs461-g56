@@ -12,13 +12,13 @@ Zhaoheng Wang
 David Barber
 # Responsibility:
 Zhi Jiang: 
- * Load data from S3 into DynamoDB(Ingest and management of sample data)
+ * Load data from S3 into DynamoDB (Ingest and management of sample data)
  * Create table for DynamoDB
  
 Zhaoheng Wang:
  * Design the table for DynamoDB
  * Design the workflow for loading new data
- * Create visualization on QuickSight(Rudimentary analysis,visualization)
+ * Create visualization on QuickSight (Rudimentary analysis,visualization)
 
 Isaac T Chan:
  * Cost model for public cloud resources used
@@ -33,8 +33,8 @@ Instruction and Code can be found in Instruction and code folder
 Load data from S3 into DynamoDB:
 1. Start the instance on EC2 console
 2. Open the terminal, find the primary key file(osu.pem) and connect to the EC2 instance find the primary key file and type ssh -i "osu.pem" ec2-user@ec2-35-164-136-118.us-west-2.compute.amazonaws.com
-3. After connecting into the EC2 instance, run the python file create.py for creating table
-4. After creating tables, run the address.py,data.py and onid.py for loading data
+3. After connecting into the EC2 instance, run the python file ``create.py`` for creating table
+4. After creating tables, run the ``address.py``, ``data.py`` and ``onid.py`` for loading data
 5. login in the DynamoDB and check the result on the console.
 6. Stop the EC2 instance on EC2 console
 
