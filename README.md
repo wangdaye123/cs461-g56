@@ -11,16 +11,16 @@ Zhaoheng Wang
 # Client:
 David Barber
 # Responsibility:
-* Zhi Jiang: 
+Zhi Jiang: 
  * Load data from S3 into DynamoDB(Ingest and management of sample data)
  * Create table for DynamoDB
  
-* Zhaoheng Wang:
+Zhaoheng Wang:
  * Design the table for DynamoDB
  * Design the workflow for loading new data
  * Create visualization on QuickSight(Rudimentary analysis,visualization)
 
-* Isaac T Chan:
+Isaac T Chan:
  * Cost model for public cloud resources used
  * Test
 
@@ -37,12 +37,12 @@ Load data from S3 into DynamoDB:
 4. After creating tables, run the address.py,data.py and onid.py for loading data
 5. login in the DynamoDB and check the result on the console.
 6. Stop the EC2 instance on EC2 console
-</br>
+
 Save the result back to the S3:
 1. Open the DynamoDB console and choose the "DataForCapstone1" table.
 2. Select the items in the table and Export to csv file
 3. Open the S3 and click upload to upload the result 
-</br>
+
 Create visualization on the QuickSight
 1. Open the QuickSight console on AWS 
 2. Click New analysis button 
