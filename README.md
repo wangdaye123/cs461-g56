@@ -12,15 +12,15 @@ Zhaoheng Wang
 David Barber
 # Responsibility:
 * Zhi Jiang: 
-	* Load data from S3 into DynamoDB(Ingest and management of sample data)
-      	* Create table for DynamoDB
+	*Load data from S3 into DynamoDB(Ingest and management of sample data)
+	*Create table for DynamoDB
 * Zhaoheng Wang:
-      	* Design the table for DynamoDB
-	* Design the workflow for loading new data
-	* Create visualization on QuickSight(Rudimentary analysis,visualization)
+	*Design the table for DynamoDB
+	*Design the workflow for loading new data
+	*Create visualization on QuickSight(Rudimentary analysis,visualization)
 * Isaac T Chan:
-      	* Cost model for public cloud resources used
-      	* Test
+	*Cost model for public cloud resources used
+	*Test
 # Environment:
 The project is working on the Amazon Web services. So it requries to access to the AWS account.
     
