@@ -25,14 +25,14 @@ Isaac T Chan:
  * Test
 
 # Environment:
-The project is working on the Amazon Web services. So it requries to access to the AWS account.
+The project is working on the Amazon Web services, so it requires you must have a AWS account and this account has permission to access our project.
     
 # Instruction:
 Instruction and Code can be found in Instruction and code folder
 
 Load data from S3 into DynamoDB:
-1. Start the instance on EC2 console
-2. Open the terminal, find the primary key file(osu.pem) and connect to the EC2 instance find the primary key file and type ssh -i "osu.pem" ec2-user@ec2-35-164-136-118.us-west-2.compute.amazonaws.com
+1. Go to AWS EC2 console and start `i-010e91199de2cf622` EC2 instance, then connect it.
+2. Open an SSH client. Locate your private key file ``osukeypair.pem``. Type command to connect this EC2 instance.
 3. After connecting into the EC2 instance, run the python file ``create.py`` for creating table
 4. After creating tables, run the ``address.py``, ``data.py`` and ``onid.py`` for loading data
 5. login in the DynamoDB and check the result on the console.
