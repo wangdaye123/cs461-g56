@@ -14,12 +14,12 @@ David Barber
 * Zhi Jiang: 
  * Load data from S3 into DynamoDB(Ingest and management of sample data)
  * Create table for DynamoDB
-</br>
+ 
 * Zhaoheng Wang:
  * Design the table for DynamoDB
  * Design the workflow for loading new data
  * Create visualization on QuickSight(Rudimentary analysis,visualization)
-</br>
+
 * Isaac T Chan:
  * Cost model for public cloud resources used
  * Test
