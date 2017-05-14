@@ -8,11 +8,11 @@
             \hline
             Java & Yes & Yes & Yes & Testable & Secure & Yes\\
             \hline
-            php & Yes & Yes & Yes & Testable & Normal & Yes\\
+            Php & Yes & Yes & Yes & Testable & Normal & Yes\\
             \hline
-            python & No & No & No & Testable & Secure & Yes\\
+            Python & Yes & Yes & Yes & Testable & Secure & Yes\\
             \hline
         \end{tabular}}
         \end{table}
                 
-        \noindent Java is the optimal choice for achieving Database functionality. Here are the reason as following. The document of Amazon DynamoDB provide the APIs for basic functionality in Java such as inserting data, updating data and listing table. These APIs make the database functionality achieving more easily. Besides, Java is testable and more secure than the php. In amazon web service, AWS Java SDK will be a good option for achieving the DynamoDB table functionalities such as updating.  it is similar with the command line prompt in Windows. We could use it to do different implementations for the table.For instance, if we need to update some items in the table, we could use the APIs in AWS Java SDK to do the updating.However, AWS Java SDK is not efficient for uploading the items.As a result, we will only use it for simple operations such as creating table, deleting table, updating table.Based on the reasons list above, Java might be the suitable language for achieving different functionalities.
+        \noindent Python is the optimal choice for achieving Database functionality. Here are the reason as following. The document of Amazon DynamoDB provide the APIs for basic functionality in Python such as inserting data, updating data and listing table. These APIs make the database functionality achieving more easily. Besides, Python is testable and more secure than the php. In amazon web service, Boto 3(AWS Python SDK) will be a good option for achieving the DynamoDB table functionalities such as updating.Boto 3 is actually the AWS SDK for Python. It allows the Python developer to write program that make use of the services on AWS such as EC2. In our project, We could use it to do different implementations for the table.For instance, if we need to update some items in the table, we could use the APIs in AWS python SDK to do the updating. For this project, we use it to creating table, uploading data and other implementations.Based on the reasons list above, Python might be the suitable language for achieving different functionalities.
