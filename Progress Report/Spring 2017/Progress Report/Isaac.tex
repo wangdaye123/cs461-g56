@@ -1,0 +1,33 @@
+\section{Tests for Functionality - Isaac Chan}
+\subsection{Original Analysis}
+Tests for functionality ensures that users are able to interact with the system. They will need to use different utilities for different interactions, such as monitoring resources, monitoring performance, managing data, and performing different methods of analysis. As shown previously, AWS Quicksight is able to build visualizations from the data. However, it’s unable to perform more complex analysis, such as machine learning. Since the primary users of the implemented database will be data analyzers, our original test for functionality was to run basic data analysis code from AWS EMR, or Elastic MapReduce, to ensure data analysis is possible. For example, we can run analysis scripts to determine the relationship between time a user stays on a specific wireless network compared with their location on campus. 
+
+\subsection{Data Standardization}
+The current data analyst tested our implemented solution and shifted the requirement. The database worked well for analysis purposes. However, she had concerns about loading raw data into the database. The raw data had certain contents that were not standardized, such as duplicates and fields that didn’t work under the column. Previously, the analyst would pull some raw data, cleanse it locally on her machine, and run analysis on a small sample. This was not a scalable solution. For real use, cleansing all the data would not be sustainable for extremely large data sets.\\
+
+\noindent Instead of running data analysis code on AWS EMR, we would run data cleansing code on EMR. EMR was chosen because it had many analysis tools preinstalled and has options for permissions to connect to the other Amazon tools we are using. It was a long process of working with the data analyst to give me all the permissions required to even start up the cluster. AWS EMR runs on top of an EC2 cluster, that we have already used. I had to obtain permissions to connect EMR to EC2. Understanding those permissions took a lot of working closely with the data analyst, who served as our AWS administrator. 
+
+\noindent The code was written in Scala and used Apache Spark as a processing engine. In order to run the Scala code on EMR, I had to package it locally in SBT, a dependency manager, and build it into a JAR, which could then be run as a Spark job on EMR.\\
+ 
+\begin{lstlisting}[language=sh, caption=Spark Submit]
+spark-submit \
+	dataprep_2.11-1.0.jar \
+	fakeTerm s3://isaac-data/mybox-selected/
+\end{lstlisting}
+ 
+\noindent After running it on sample data, the code outputted a split series of CSV files to Amazon S3, which could then be loaded into DynamoDB.\\
+
+\noindent Analysis on data in DynamoDB is almost always the same process, because the data format inside is always consistent. However, in order to efficiently process big data in the Amazon cloud, we had to shift requirements to cleanse and load data all within the AWS environment. This demonstrated a path forward for future usage of our project, from start to finish of standardizing raw data all the way to loading it into the database.\\
+
+\section{Performance Optimizations - Isaac Chan}
+Performance metrics for database functionality are important to ensure the usability of our implemented solution. We would assess performance from typical database operations: data inserts, updates, and reads. From this we can obtain a baseline for the database performance, and examine how varying data and query loads compare to the baseline.\\ 
+
+\noindent After meeting with the data analyst, we found out that the scenario they are expecting is only loading approximately 80 megabytes of data per day, which is an incredibly small amount and loads easily into our database using the Amazon services. Therefore, we eliminated this task in favor for functionality tests.
+
+\section{Database Security - Isaac Chan}
+For database security, unfortunately NoSQL databases do not support external encryption tools. Therefore we used a combination of methods to ensure security of our solution, by restricting access and preventing malicious utilization of the data. The options we chose are AWS’s user authentication policies, and encrypting sensitive data fields. Because of the lack of external tool support by NoSQL databases, we must resort to using modular security methods.\\
+
+\noindent AWS user authentication policies must be implemented by the AWS administrator. When I worked with the data analyst for permissions to EMR, we found that each service within AWS had to be restricted individually. Ultimately, I had less permissions than she realized and it takes a lot of separate permissions to give someone access to a service.\\
+
+\noindent Previously, we had thought that encrypting sensitive data fields would also fall to the AWS administrator. After speaking with the data analyst, they’d like to add data encryption for the future usage, not simply for us as developers as we had previously thought. We have implemented this already, as mentioned before in this presentation, by hashing the sensitive fields, putting the real fields in separate tables, and using the hashes as identifiers to link the data tables together without unauthorized users seeing this sensitive data.
+
