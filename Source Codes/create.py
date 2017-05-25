@@ -1,8 +1,8 @@
 import boto3
 
-tname1 = 'table1';
-tname2 = 'table2';
-tname3 = 'table3';
+tname1 = 'Mac_Address';
+tname2 = 'ONID';
+tname3 = 'Records';
 
 # access DynamoDB
 dynamodb = boto3.client('dynamodb')

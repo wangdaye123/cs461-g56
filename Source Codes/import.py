@@ -31,15 +31,16 @@ s3.download_file(input_bucket, file_name, "tmp.txt")
 
 # open the temporary file
 f = open('tmp.txt')
-num = 0
+
+num = 0 # You need to reomve it
 
 # read the file line by line
 for line in f:
-    num += 1
+	num += 1 # You need to reomve it
     
     list_line = line.split(',')
     
-    # avoid empty value
+	# avoid empty value
     for i in range(len(list_line)):
         if list_line[i] == '':
             list_line[i] = "empty"
@@ -62,8 +63,9 @@ for line in f:
     # If is a new ONID/MAC
     if count1 == 0 and count2 == 0:
         # create a new PIN
-        PIN = str(hash(check_onid + check_mac + str(num)))
-    
+        PIN = str(hash(check_onid + check_mac + str(num))) # You need to replace it with PIN = str(hash(check_onid + check_mac))
+    	
+		# add a new itme to MAC address table
         Mac_Address.put_item(
             Item = {
                 'PIN': PIN,
@@ -71,7 +73,8 @@ for line in f:
             }
 
         )
-
+		
+		# add a new itme to ONID table 
         ONID.put_item(
             Item = {
                 'PIN': PIN,
@@ -79,6 +82,7 @@ for line in f:
             }
         )
     
+		# add a new item to Records table
         Records.put_item(
             Item={
                 'PIN': PIN,
@@ -98,12 +102,11 @@ for line in f:
                 'OS_Detail': list_line[16],
             }
         )
-    # We need to update this item
+    # If it is not new ONID/MAC
     else:
-        # If it is not new ONID/MAC
         Records.update_item(
             Key={
-                'PIN': str(hash(check_onid + check_mac + str(num))),
+                'PIN': str(hash(check_onid + check_mac + str(num))),	# You need to replace it with 'PIN': str(hash(check_onid + check_mac)),	 
             },
             UpdateExpression='SET OSU_Role = :role, Device_Name = :d_name, Device_Location = :d_location, Connect_Time = :c_time, Disconnect_Time = :d_time, Total_Traffic = :t_t, Avg_Usage = :a_u, AP_Radio = :a_r, Connection_Mode = :c_mode, Device_Type = :d_t, Manufacturer = :man, Model = :model, OS = :os, OS_Detail = :os_d',
             ExpressionAttributeValues={
@@ -140,5 +143,6 @@ with open(file_name, 'wb') as csv_file:
 # upload file of anonymized record to S3
 s3.upload_file(file_name, output_bucket, file_name)
 
+# delete temporary files
 os.remove(file_name)
 os.remove('tmp.txt')
