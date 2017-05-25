@@ -46,7 +46,7 @@ Create visualization on the QuickSight
 1. Open the QuickSight console on AWS 
 2. Click New analysis button 
 3. Choose New data set
-4. Click upload a file and choose the csv file which export from the "DataForCapstone1" table
+4. Click upload a file and choose the csv file which export from the "Records" table
 5. Using the data set and select the conlumn which need to evalaute.
 6. Select the rows that need to evaluate and choose the visual types.
 7. The visual will be created on right side.
