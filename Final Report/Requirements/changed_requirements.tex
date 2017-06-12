@@ -1,0 +1,18 @@
+\subsection{Requirements Revision}
+\vspace*{+30pt}
+\begin{tabular}{| p{0.01\linewidth} | p{0.4\linewidth} | p{0.1\linewidth} | p{0.40\linewidth} |}\hline
+1 & The user can insert any types of data they want into database & Changed & The user cannot insert data into database directly, all data are imported by script from data storage to database.\\ 
+\hline
+2 & Create table in database & Added & In order to achieve better automation, we use script to create table when we import data.\\ 
+\hline
+3 & Import data from data storage to database & Added & All data are stored in data storage at the beginning, and then we use script to import them into database.\\ 
+\hline
+4 & Data anonymization & Added & This is a new requirement of client. We separate Mac address, ONID and the rest of data into three different table in database.\\ 
+\hline
+5 & Data Visualization & Added &  According to the requirements from our client, we need to do the rudimentary analysis on visualization tool\\ 
+\hline
+6 & Database Performance & Changed &  Due to the small volume of data ingestion, this requirement had reduced priority.\\ 
+\hline
+7 & Tests for Functionality & Changed &  Instead of testing for viability of analysis, our client requested a data standardization step, which was run on data that would be loaded into the database.\\ 
+\hline
+\end{tabular}

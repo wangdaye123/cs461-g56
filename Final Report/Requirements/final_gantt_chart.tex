@@ -1,0 +1,43 @@
+\begin{landscape}
+\subsection{The Entire Process}
+	\vspace*{+30pt}
+	\begin{ganttchart}[y unit chart=0.7cm, vgrid, hgrid]{1}{31}
+     	\gantttitle{Fall}{9}
+        \gantttitle{Winter}{11}
+        \gantttitle{Spring}{11}\\
+       
+        \gantttitlelist{3,...,11}{1}
+        \gantttitlelist{1,...,11}{1}
+        \gantttitlelist{1,...,11}{1}\\
+        
+        % Fall start 1 to 9
+        \ganttbar{Requirements Document}{1}{3}\\
+        \ganttbar{Technology Review}{4}{6} \\
+        \ganttbar{Design Document}{7}{8} \\
+        \ganttbar{Progress Report}{9}{9}\\
+        
+        % Winter start 10 to 20
+        \ganttbar{Creating EC2}{10}{12}\\
+        \ganttbar{Creating table by script}{13}{15}\\
+        \ganttbar{Importing data by script}{13}{15}\\
+        \ganttbar{Data visualization on QuickSight}{15}{16}\\
+        \ganttbar{Winter Term Midterm Progress Report}{16}{17}\\
+        \ganttbar{Changing table structure}{17}{18} \\
+        \ganttbar{Adding workflow of loading new data }{17}{18}\\
+        \ganttbar{Updating data in DynamoDB table}{18}{19}\\
+        \ganttbar{Winter Term Progress Report}{19}{20}\\
+        
+        % Spring start 21 to 31
+        %\ganttbar{Test for functionality}{}{} \\
+        %\ganttbar{Performance Optimization}{}{}\\
+        %\ganttbar{Security Optimization}{}{}\\
+        %\ganttbar{Cost Comparison}{}{}\\
+        \ganttbar{Tests for Feasibility}{21}{23}\\
+        \ganttbar{Cost Analysis}{23}{24}\\
+        \ganttbar{Spring Term Midterm Progress Report}{25}{27}\\
+        \ganttbar{Expo}{27}{27}\\
+        \ganttbar{Client Demo}{28}{28}\\
+        \ganttbar{Anonymization Function}{28}{28}\\
+        \ganttbar{Final Report}{29}{31}
+	\end{ganttchart}
+\end{landscape}
